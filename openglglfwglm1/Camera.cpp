@@ -16,6 +16,12 @@ void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
         Position -= Right * velocity;
     if (direction == Camera_Movement::RIGHT)
         Position += Right * velocity;
+    if (direction == Camera_Movement::SPACE) {
+        Position += SpaceUP * velocity;
+        //for (int i = 0; i < deltaTime; i++) {}
+        //Position += SpaceUP * velocity;
+
+    }
 }
 
 void Camera::ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch)
@@ -55,4 +61,5 @@ void Camera::updateCameraVectors()
 
     Right = glm::normalize(glm::cross(Front, WorldUp));
     Up = glm::normalize(glm::cross(Right, Front));
+    SpaceUP = glm::normalize(WorldUp);
 }

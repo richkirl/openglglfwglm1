@@ -22,7 +22,8 @@ public:
 		FORWARD,
 		BACKWARD,
 		LEFT,
-		RIGHT
+		RIGHT,
+		SPACE
 	};
 
 
@@ -31,6 +32,7 @@ public:
 	glm::vec3 Up;
 	glm::vec3 Right;
 	glm::vec3 WorldUp;
+	glm::vec3 SpaceUP;
 
 	float Yaw;
 	float Pitch;
@@ -51,6 +53,7 @@ public:
 	{
 		Position = glm::vec3(posX, PosY, posZ);
 		WorldUp = glm::vec3(upX, upY, upZ);
+		SpaceUP = glm::vec3(posX, PosY, posZ);
 		Yaw = yaw;
 		updateCameraVectors();
 	}
